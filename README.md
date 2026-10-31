@@ -41,28 +41,3 @@ Data Store: Plain JavaScript objects representing learning modules.
 State-Driven UI: Everything rendered is a pure function of the application state.
 
 Hyperscript Engine (h function): Custom lightweight DOM helper mimicking React.createElement.
-
-🚀 Quick Start
-
-No Node.js or package manager (npm / yarn) required!
-
-Clone the repository:
-
-git clone https://github.com/YOUR_USERNAME/webschool.git
-
-
-
-Open index.html directly in any web browser or use VS Code Live Server.
-
-📁 Project Structure
-
-webschool/
-├── index.html   # Semantic layout structure (Nouns)
-├── style.css    # Design tokens, layouts, and dark theme (Adjectives)
-└── app.js       # Store, state management, render engine & demos (Verbs)
-
-
-
-📜 License
-
-Distributed under the MIT License. See LICENSE for more information.
