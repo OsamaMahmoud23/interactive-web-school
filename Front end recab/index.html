@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- =========================================================================
+  webschool — learn HTML, CSS and JavaScript by running them
+
+  HOW THE THREE FILES CONNECT (read me first):
+    index.html  = STRUCTURE  (the nouns: what things exist)
+    style.css   = LOOK       (the adjectives: how things appear)
+    app.js      = BEHAVIOR   (the verbs: what happens when you click/type)
+
+  The browser reads THIS file top to bottom. Each time it meets a <link> or
+  <script> it fetches that file and joins it to the page.
+  ========================================================================= -->
+<html lang="en"> <!-- lang helps screen readers pick the right voice -->
+<head>
+<meta charset="UTF-8" />
+<!-- viewport: without this, phones pretend to be a 980px-wide desktop -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>webschool — learn HTML, CSS & JavaScript</title>
+
+<!-- CSS connects here. It lives in <head> so styles load BEFORE the page
+     paints (no flash of unstyled content). -->
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- class="..." is CSS's handle. id="..." is JavaScript's handle.
+       Semantic tags (aside, nav, main) tell browsers and screen readers
+       what each region IS, which a pile of <div>s cannot. -->
+  <div class="app" id="app">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <div class="brand">
+          <span class="brand-glyph" aria-hidden="true">&lt;/&gt;</span>
+          <span class="brand-name">webschool</span>
+        </div>
+        <p class="brand-tag">learn HTML, CSS &amp; JS by running them</p>
+      </div>
+
+      <div class="search-wrap">
+        <!-- label + for="id" links the text to the input (accessibility).
+             sr-only hides it visually but keeps it for screen readers. -->
+        <label for="search-input" class="sr-only">Search lessons</label>
+        <span class="search-glyph" aria-hidden="true">/</span>
+        <input type="text" id="search-input" class="search-input"
+               placeholder="search lessons or keywords…" autocomplete="off" />
+        <span class="search-count" id="search-count"></span>
+      </div>
+
+      <!-- EMPTY ON PURPOSE: app.js builds these from data (the DOM lesson). -->
+      <div class="filter-row" id="filter-row" aria-label="Filter by language"></div>
+      <nav class="cmd-nav" id="cmd-nav" aria-label="Lessons"></nav>
+
+      <div class="sidebar-foot">
+        <button class="favs-toggle" id="favs-toggle" type="button" aria-pressed="false">
+          <span class="star" aria-hidden="true">★</span>
+          <span id="favs-toggle-label">show favorites only</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="viewer" id="viewer" tabindex="-1"><!-- lesson rendered by JS --></main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- JS connects LAST, at the end of <body>, so every element above already
+       exists when the script runs (otherwise getElementById returns null). -->
+  <script src="app.js"></script>
+</body>
+</html>
